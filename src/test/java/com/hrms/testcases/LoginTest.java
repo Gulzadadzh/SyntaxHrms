@@ -1,28 +1,26 @@
 package com.hrms.testcases;
 
+import java.util.Date;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.hrms.pages.DashboardPageElements;
-import com.hrms.pages.LoginPageElements;
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
 
+
 public class LoginTest extends CommonMethods {
 
-	@Test(groups="smoke")
+	@Test(groups = "smoke")
 	public void validLogin() {
-
-		LoginPageElements login=new LoginPageElements();
-		sendText(login.userNametextBox, ConfigsReader.getPropValue("username"));
+		sendText(LoginTest.userNametextBox, ConfigsReader.getPropValue("username"));
 		sendText(login.passwordTextBox, ConfigsReader.getPropValue("password"));
 		click(login.btnLogin);
-
-		DashboardPageElements dashboard = new DashboardPageElements();
-		Assert.assertTrue(dashboard.welcome.isDisplayed());
+		Assert.assertTrue(Date.welcome.isDisplayed());
 	}
-	@Test(groups="regression", dataProvider="invalidCredentials")
+
+	@Test(groups = "regression", dataProvider = "invalidCredentials")
 	public void invalidLogin(String username, String password, String errorMessage) {
 		sendText(login.userNametextBox, username);
 		sendText(login.passwordTextBox, password);
@@ -35,9 +33,7 @@ public class LoginTest extends CommonMethods {
 		String[][] data = { 
 				{ "", "Hum@nhrm123", "Username cannot be empty" },
 				{ "Admin", "", "Password cannot be empty" }, 
-				{ "Admin", "Hum@nhrm12", "Invalid credentials" }, 
-				};
+				{ "Admin", "Hum@nhrm12", "Invalid credentials" }, };
 		return data;
 	}
-} 
-	
+}

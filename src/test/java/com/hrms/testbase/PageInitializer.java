@@ -1,4 +1,4 @@
-package com.hrms.testcases;
+package com.hrms.testbase;
 
 import com.hrms.pages.AddEmployeePageElements;
 import com.hrms.pages.DashboardPageElements;

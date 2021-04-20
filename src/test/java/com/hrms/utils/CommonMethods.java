@@ -2,8 +2,11 @@ package com.hrms.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.xmlbeans.impl.jam.visitor.PropertyInitializer;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -78,5 +81,14 @@ public class CommonMethods extends PageInitializer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public void  String CommonMethods() {
+		
+		Date date=new Date();
+		
+		
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
+		
+		return sdf.format(date);
 	}
 }

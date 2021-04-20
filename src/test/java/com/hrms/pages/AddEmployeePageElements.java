@@ -6,14 +6,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.hrms.testbase.BaseClass;
 
-public class AddEmployeePageElements extends BaseClass {
+public class AddEmployeePageElements extends BaseClass{
 	
-	@FindBy(xpath="//input[@id = 'firstName']")
+	@FindBy(xpath = "//input[@id = 'firstName']")
 	public WebElement firstNameField;
 	
 	@FindBy(xpath = "//input[@id = 'middleName']")
 	public WebElement middleName;
-
+	
 	@FindBy(xpath = "//input[@id = 'lastName']")
 	public WebElement lastName;
 	
@@ -26,7 +26,7 @@ public class AddEmployeePageElements extends BaseClass {
 	@FindBy(xpath = "//span[@for = 'lastName']")
 	public WebElement errorMessageForBlankLastName;
 	
-	@FindBy(xpath = "//span[@for = 'firsName']")
+	@FindBy(xpath = "//span[@for = 'firstName']")
 	public WebElement errorMessageForBlankFirstName;
 	
 	@FindBy(id = "chkLogin")
@@ -36,12 +36,12 @@ public class AddEmployeePageElements extends BaseClass {
 	public WebElement userName;
 	
 	@FindBy(id = "user_password")
-	public WebElement confirmPassword;
+	public WebElement userPassword;
 	
+	@FindBy(id = "re_password")
+	public WebElement confirmPassword;
 	
 	public AddEmployeePageElements() {
 		PageFactory.initElements(driver, this);
 	}
-
-	
 }

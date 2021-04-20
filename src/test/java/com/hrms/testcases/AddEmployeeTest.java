@@ -1,7 +1,6 @@
 package com.hrms.testcases;
 
 import java.util.List;
-
 import java.util.Map;
 
 import org.testng.Assert;
@@ -18,10 +17,9 @@ public class AddEmployeeTest extends CommonMethods {
 
 	@Test(groups = "regression", dataProvider = "getData")
 	public void addEmployee(String firstName, String lastName, String userName, String password) {
-		sendText(login.userNametextBox, ConfigsReader.getPropValue("username"));
-		sendText(login.passwordTextBox, ConfigsReader.getPropValue("password"));
+		sendText(Login.userNametextBox, ConfigsReader.getPropValue("username"));
+		sendText(Login.passwordTextBox, ConfigsReader.getPropValue("password"));
 		click(login.btnLogin);
-		
 
 		jsClick(dash.pimLinkBtn);
 		jsClick(dash.addEmpBtn);
@@ -30,13 +28,14 @@ public class AddEmployeeTest extends CommonMethods {
 		sendText(addEmp.lastName, lastName);
 		click(addEmp.createLoginDetailsCheckbox);
 		sendText(addEmp.userName, userName);
-		//sendText(addEmp.userPassword, password);
+		sendText(addEmp.userPassword, password);
 		sendText(addEmp.confirmPassword, password);
 		click(addEmp.saveButton);
+
 		Assert.assertEquals(persDetails.profileName.getText(), firstName + " " + lastName);
 	}
 
-	@Test(groups="regression", dataProvider = "getData")
+	@Test(groups="regression")
 	public void addMultipleEmployees() {
 		sendText(login.userNametextBox, ConfigsReader.getPropValue("username"));
 		sendText(login.passwordTextBox, ConfigsReader.getPropValue("password"));
@@ -65,11 +64,11 @@ public class AddEmployeeTest extends CommonMethods {
 	@DataProvider
 	public static String[][] getData() {
 		String[][] data = { 
-				{ "Alice", "Silve", "Alstydfisil4x4", "!K!ters1Duzf" },
-				{ "Asal", "Siasaf", "Alisiasal4x5", "!K!ters1Duz" },
-				{ "Alan", "Sil", "Alishtyifl4x6", "!K!ters1Duz" },
-				{ "Ali", "Si3", "Atyufrulisil4x7", "!K!ters1Duz" },
-				{ "Alfi", "Sil", "Alisil4fx8", "!K!tefrs1Duz" },  };
+				{ "Alice", "Silve", "Alsty", "!K!ters1Duzf" },
+				{ "Asal", "Siasaf", "Alisia", "!K!ters1Duz" },
+				{ "Alan", "Sil", "Alishtyi", "!K!ters1Duz" },
+				{ "Ali", "Si3", "Atyufru", "!K!ters1Duz" }, 
+				{ "Alfi", "Sil", "Alisil4", "!K!tefrs1Duz" }, };
 		return data;
 	}
 

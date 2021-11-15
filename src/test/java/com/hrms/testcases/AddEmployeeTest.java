@@ -17,8 +17,8 @@ public class AddEmployeeTest extends CommonMethods {
 
 	@Test(groups = "regression", dataProvider = "getData")
 	public void addEmployee(String firstName, String lastName, String userName, String password) {
-		sendText(Login.userNametextBox, ConfigsReader.getPropValue("username"));
-		sendText(Login.passwordTextBox, ConfigsReader.getPropValue("password"));
+		sendText(login.userNametextBox, ConfigsReader.getPropValue("username"));
+		sendText(login.passwordTextBox, ConfigsReader.getPropValue("password"));
 		click(login.btnLogin);
 
 		jsClick(dash.pimLinkBtn);
@@ -42,6 +42,7 @@ public class AddEmployeeTest extends CommonMethods {
 		click(login.btnLogin);
 
 		jsClick(dash.pimLinkBtn);
+		jsClick(dash.addEmpBtn);
 
 		List<Map<String, String>> employeeList = ExcelUtility.excelToListMap(Constants.TESTDATA_FILEPATH,
 				"AddEmployee");

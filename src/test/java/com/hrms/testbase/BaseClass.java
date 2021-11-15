@@ -5,11 +5,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import com.hrms.utils.ConfigsReader;
+import com.hrms.utils.Constants;
 
 public class BaseClass {
 
@@ -18,24 +20,23 @@ public class BaseClass {
 	@BeforeMethod(alwaysRun = true)
 	public void setUp() {
 
-		ConfigsReader.readProperties(
-				System.getProperty("user.dir" + "/src/test/resources/configs/configuration.properties"));
+		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
 
 		switch (ConfigsReader.getPropValue("browser").toLowerCase()) {
 
 		case "chrome":
-			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir" + "/src/test/resources/drivers/chromedriver"));
+			System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVER_PATH);
 			driver = new ChromeDriver();
 			break;
 		case "firefox":
-			System.setProperty("webdriver.gecko.driver",
-					System.getProperty("user.dir" + "/src/test/resources/drivers/geckodriver"));
+			System.setProperty("webdriver.gecko.driver", Constants.GECKODRIVER_PATH);
 			driver = new FirefoxDriver();
 			break;
 		case "edge":
-
+			System.setProperty("webdriver.edge.driver", Constants.EDGEDRIVER_PATH);
+			driver = new EdgeDriver();
 			break;
+
 
 		default:
 			throw new RuntimeException("Browser is not supported");
@@ -44,6 +45,7 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get(ConfigsReader.getPropValue("applicationUrl"));
+		PageInitializer.initializePageObjects();
 	}
 
 	@AfterMethod(alwaysRun=true)

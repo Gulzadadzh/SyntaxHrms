@@ -1,23 +1,32 @@
 package com.hrms.testcases;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.hrms.pages.DashboardPageElements;
+import com.hrms.pages.LoginPageElements;
+import com.hrms.testbase.PageInitializer;
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
 
 
-public class LoginTest extends CommonMethods {
+public class LoginTest extends CommonMethods{
 
-	@Test(groups = "smoke")
+	
+	//@Test(groups = "smoke")
 	public void validLogin() {
-		sendText(LoginTest.userNametextBox, ConfigsReader.getPropValue("username"));
+		
+		sendText(login.userNametextBox, ConfigsReader.getPropValue("username"));
 		sendText(login.passwordTextBox, ConfigsReader.getPropValue("password"));
 		click(login.btnLogin);
-		Assert.assertTrue(Date.welcome.isDisplayed());
+		
+		
+		Assert.assertTrue(dash.welcome.isDisplayed());
 	}
 
 	@Test(groups = "regression", dataProvider = "invalidCredentials")
@@ -36,4 +45,5 @@ public class LoginTest extends CommonMethods {
 				{ "Admin", "Hum@nhrm12", "Invalid credentials" }, };
 		return data;
 	}
+	
 }

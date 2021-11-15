@@ -5,8 +5,6 @@
     <classes>
       <class name="com.hrms.testcases.LoginTest">
         <methods>
-          <include name="invalidLogin"/>
-          <include name="getTimeStamp"/>
           <include name="validLogin"/>
           <include name="tearDown"/>
           <include name="setUp"/>

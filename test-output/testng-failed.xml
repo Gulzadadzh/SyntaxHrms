@@ -5,9 +5,9 @@
     <classes>
       <class name="com.hrms.testcases.LoginTest">
         <methods>
+          <include name="setUp"/>
           <include name="validLogin"/>
           <include name="tearDown"/>
-          <include name="setUp"/>
         </methods>
       </class> <!-- com.hrms.testcases.LoginTest -->
     </classes>

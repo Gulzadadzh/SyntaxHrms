@@ -69,7 +69,8 @@ public class AddEmployeeTest extends CommonMethods {
 				{ "Asal", "Siasaf", "Alisia", "!K!ters1Duz" },
 				{ "Alan", "Sil", "Alishtyi", "!K!ters1Duz" },
 				{ "Ali", "Si3", "Atyufru", "!K!ters1Duz" }, 
-				{ "Alfi", "Sil", "Alisil4", "!K!tefrs1Duz" }, };
+				{ "Alfi", "Sil", "Alisil4", "!K!tefrs1Duz" },
+				};
 		return data;
 	}
 

@@ -30,10 +30,10 @@ public class DashboardPageElements extends BaseClass{
 	@FindBy(id = "menu_directory_viewDirectory")
 	public WebElement directoryLinkBtn;
 	
-	@FindBy(css = "a#welcome")
+	@FindBy(id = "welcome")
 	public WebElement welcome;
 	
-	@FindBy(id = "menu_pim_addEmployee")
+	@FindBy(id = "menu_pim_viewEmployeeList")
 	public WebElement addEmpBtn;
 	
 	public DashboardPageElements() {

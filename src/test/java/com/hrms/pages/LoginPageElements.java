@@ -8,16 +8,16 @@ import com.hrms.testbase.BaseClass;
 
 public class LoginPageElements extends BaseClass{
 
-	@FindBy(id="txtUsername")
+	@FindBy(xpath="//input[@id = 'txtUsername']")
 	public WebElement userNametextBox;
 	
 	@FindBy(xpath="//input[@id = 'txtPassword']")
 	public WebElement passwordTextBox;
 
-	@FindBy(css = "input#btnLogin")
+	@FindBy(id="btnLogin")
 	public WebElement btnLogin;
 	
-	@FindBy(id = "divLogo")
+	@FindBy(xpath="//div[@id = 'divLogo']")
 	public WebElement syntaxLogo;
 	
 	@FindBy(id = "spanMessage")

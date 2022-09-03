@@ -21,8 +21,8 @@ import com.hrms.testbase.PageInitializer;
 public class CommonMethods extends PageInitializer {
 
 	/**
-	 * Method that sends text to any given element
-	 * 
+	 *  Method that sends text to any given element
+	 *  
 	 * @param element
 	 * @param text
 	 */

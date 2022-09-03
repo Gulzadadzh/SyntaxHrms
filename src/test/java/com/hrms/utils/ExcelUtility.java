@@ -12,11 +12,12 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtility {
-	
+
 	static Workbook book;
 	static Sheet sheet;
+
 	public static void openExcel(String filePath) {
-		
+
 		try {
 			FileInputStream fis = new FileInputStream(filePath);
 			book = new XSSFWorkbook(fis);
@@ -26,18 +27,23 @@ public class ExcelUtility {
 			e.printStackTrace();
 		}
 	}
+
 	public static void getSheet(String sheetName) {
 		sheet = book.getSheet(sheetName);
 	}
+
 	public static int getRowsCount() {
 		return sheet.getPhysicalNumberOfRows();
 	}
+
 	public static int getColsCount(int rowNum) {
 		return sheet.getRow(rowNum).getPhysicalNumberOfCells();
 	}
+
 	public static String getCellData(int rowIndex, int colIndex) {
 		return sheet.getRow(rowIndex).getCell(colIndex).toString();
 	}
+
 	public static List<Map<String, String>> excelToListMap(String filePath, String sheet) {
 		List<Map<String, String>> list = new ArrayList<>();
 		Map<String, String> map;

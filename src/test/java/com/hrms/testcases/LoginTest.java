@@ -1,16 +1,10 @@
 package com.hrms.testcases;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.hrms.pages.DashboardPageElements;
-import com.hrms.pages.LoginPageElements;
-import com.hrms.testbase.PageInitializer;
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
 
@@ -18,7 +12,7 @@ import com.hrms.utils.ConfigsReader;
 public class LoginTest extends CommonMethods{
 
 	
-	//@Test(groups = "smoke")
+	@Test(groups = "smoke")
 	public void validLogin() {
 		
 		sendText(login.userNametextBox, ConfigsReader.getPropValue("username"));
